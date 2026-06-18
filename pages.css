@@ -1,0 +1,240 @@
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, #EE00FF 0%, #0FFFFB 100%);
+    background-attachment: fixed;
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(6, 5, 21, 0.7);
+    z-index: 1;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    animation: fadeInDown 0.8s ease;
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    color: #0FFFFB;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Page Content */
+.page-content {
+    min-height: 60vh;
+    padding: 4rem 2rem;
+    background-color: #060515;
+}
+
+.content-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.info-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(238, 0, 255, 0.05) 0%, rgba(15, 255, 251, 0.05) 100%);
+    border-left: 4px solid #EE00FF;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    animation: slideIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.info-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.info-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.info-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.info-section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.info-section:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.info-section:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.info-section:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.info-section:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.info-section:hover {
+    background: linear-gradient(135deg, rgba(238, 0, 255, 0.1) 0%, rgba(15, 255, 251, 0.1) 100%);
+    border-left-color: #0FFFFB;
+    box-shadow: 0 0 20px rgba(238, 0, 255, 0.2);
+    transform: translateX(10px);
+}
+
+.info-section h2 {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #EE00FF 0%, #0FFFFB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(238, 0, 255, 0.3);
+}
+
+.info-section p {
+    color: #cccccc;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.info-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-section ul li {
+    color: #cccccc;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.info-section ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #EE00FF;
+    font-size: 1.2rem;
+}
+
+.info-section strong {
+    color: #0FFFFB;
+}
+
+/* Table Styling */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background-color: rgba(15, 255, 251, 0.05);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.info-table th {
+    background: linear-gradient(90deg, #EE00FF 0%, #0FFFFB 100%);
+    color: #060515;
+    padding: 1rem;
+    text-align: left;
+    font-weight: bold;
+    border: none;
+}
+
+.info-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(238, 0, 255, 0.2);
+    color: #cccccc;
+}
+
+.info-table tr:hover td {
+    background-color: rgba(238, 0, 255, 0.05);
+}
+
+.info-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+    }
+
+    .page-header {
+        padding: 3rem 1rem;
+    }
+
+    .content-container {
+        padding: 0 1rem;
+    }
+
+    .info-section {
+        padding: 1.5rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .info-table th,
+    .info-table td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
