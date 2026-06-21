@@ -3,52 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewEra</title>
+    <title>NewEra - Home</title>
 
     <link rel="stylesheet" href="styles.css">
-
     <link rel="icon" href="favicon.png?v=2">
 </head>
 <body>
 
 <nav class="navbar">
-    <div class="logo">NewEra</div>
+    <div class="nav-container">
+        <div class="logo">NewEra</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="claninfos.html">Clan Infos</a></li>
+            <li><a href="Regeln.html">Regelwerk</a></li>
+            <li><a href="discordbot.html">Discord Bot</a></li>
+            <li>
+                <a href="https://discord.gg/t6cKAndmGn" target="_blank">
+                    Discord Server
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
-<section class="features">
+<section class="hero">
+    <h1>NewEra</h1>
+    <p>Willkommen auf der offiziellen Clan Website</p>
 
-    <div class="feature-card">
-
-        <h2>Discord Login</h2>
-
-        <p>
-            ⚠️ Funktioniert nur wenn der Bot online ist.<br>
-            Der Bot ist NICHT 24/7 aktiv.
-        </p>
-
-        <input id="discordId" placeholder="Discord ID eingeben">
-
-        <button onclick="login()">Login starten</button>
-
-        <p id="status"></p>
-    </div>
-
+    <a href="login.html" class="cta-button">
+        Login öffnen
+    </a>
 </section>
-
-<script>
-async function login() {
-    const id = document.getElementById("discordId").value;
-
-    const res = await fetch("http://DEINE_PI_IP:3000/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ discordId: id })
-    });
-
-    const data = await res.json();
-    document.getElementById("status").innerText = data.message;
-}
-</script>
 
 </body>
 </html>
