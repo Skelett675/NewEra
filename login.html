@@ -2,69 +2,42 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - NewEra</title>
-
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.png?v=2">
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="logo">NewEra</div>
+<section class="hero">
+    <div class="login-box">
 
-        <ul class="nav-links">
-            <li><a href="index.html">← Zurück</a></li>
-            <li><a href="claninfos.html">Clan Infos</a></li>
-            <li><a href="discordbot.html">Discord Bot</a></li>
-        </ul>
-    </div>
-</nav>
+        <h2>Login</h2>
 
-<section class="page-content">
-    <div class="content-container">
+        <input id="discordId" placeholder="Discord ID">
+        <input id="password" type="password" placeholder="Passwort">
 
-        <div class="info-section">
+        <button onclick="login()" class="cta-button">
+            Einloggen
+        </button>
 
-            <h2>Discord Login</h2>
-
-            <p>
-                ⚠️ Login funktioniert nur wenn der Discord Bot online ist.<br>
-                Der Bot ist aktuell NICHT 24/7 verfügbar.
-            </p>
-
-            <input id="discordId" placeholder="Discord ID eingeben">
-
-            <button class="cta-button" onclick="login()">
-                Login starten
-            </button>
-
-            <p id="status"></p>
-
-        </div>
+        <p id="status"></p>
 
     </div>
 </section>
 
 <script>
 async function login() {
-    const id = document.getElementById("discordId").value;
+    const discordId = document.getElementById("discordId").value;
+    const password = document.getElementById("password").value;
 
-    try {
-        const res = await fetch("http://192.168.178.168:3000/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ discordId: id })
-        });
+    const res = await fetch("http://192.168.178.168:3000/check-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ discordId, password })
+    });
 
-        const data = await res.json();
-        document.getElementById("status").innerText = data.message;
+    const data = await res.json();
 
-    } catch (err) {
-        document.getElementById("status").innerText =
-            "Server offline oder Bot nicht erreichbar";
-    }
+    document.getElementById("status").innerText = data.message;
 }
 </script>
 
