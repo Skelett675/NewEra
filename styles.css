@@ -1,4 +1,5 @@
 
+/* BASIC */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -32,69 +33,45 @@ body {
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 8px;
-    transition: 0.2s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     background: rgba(255,255,255,0.08);
 }
 
 /* HERO CENTER */
 .hero {
-    height: 100vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-/* BOXES */
-.center-box,
-.login-box {
-    text-align: center;
-    padding: 45px;
+/* BOX */
+.center-box {
+    padding: 50px;
     border-radius: 15px;
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
     width: 90%;
     max-width: 700px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* LOGIN BIGGER */
-.login-box.big {
-    max-width: 800px;
-    padding: 70px;
-}
-
-.login-box.big h2 {
-    font-size: 34px;
-}
-
-/* INPUTS */
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: rgba(0,0,0,0.4);
-    color: white;
-    outline: none;
-}
-
-/* BUTTON (DEIN ORIGINAL STYLE + UPGRADE) */
+/* BUTTONS (GITHUB SAFE GRADIENT FIX) */
 .cta-button {
-    padding: 12px 20px;
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 5px;
+    border-radius: 10px;
+
     background: linear-gradient(90deg, #6c5ce7, #00d2ff);
     color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
+
     transition: 0.2s;
-    display: inline-block;
 }
 
 .cta-button:hover {
@@ -102,35 +79,36 @@ input {
     filter: brightness(1.1);
 }
 
-.cta-button.secondary {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
-}
+/* BOTTOM BUTTONS FIX */
+.bottom-buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 
-/* BUTTON ROW */
-.button-row {
-    margin-top: 20px;
     display: flex;
-    gap: 12px;
-    justify-content: center;
+    gap: 10px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* FOOTER */
 .footer {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     background: rgba(0,0,0,0.6);
     border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-/* ANIMATION */
-.center-box,
-.login-box {
-    animation: fadeIn 0.5s ease;
-}
+/* MOBILE FIX */
+@media (max-width: 600px) {
+    .bottom-buttons {
+        position: static;
+        margin-top: 30px;
+    }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    .hero {
+        height: auto;
+        padding: 80px 0;
+    }
 }
