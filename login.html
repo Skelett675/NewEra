@@ -4,60 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - NewEra</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
 
 <nav class="navbar">
-    <div class="nav-container">
+    <div class="logo">NewEra</div>
 
-        <div class="logo">NewEra</div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">← Zurück</a></li>
-            <li><a href="claninfos.html">Clan Infos</a></li>
-            <li><a href="Regeln.html">Regelwerk</a></li>
-            <li><a href="discordbot.html">Discord Bot</a></li>
-        </ul>
-
-    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">← Zurück</a></li>
+    </ul>
 </nav>
 
 <section class="hero">
 
-    <div class="login-box big">
+<div class="login-box big">
 
-        <h2>Discord Login</h2>
+    <h2>NewEra Login System</h2>
 
-        <p>🔐 Login nur möglich wenn der Bot online ist</p>
+    <p>Registrieren oder einloggen mit Discord ID</p>
 
-        <input id="discordId" placeholder="Discord ID">
-        <input id="password" type="password" placeholder="Passwort">
+    <input id="discordId" placeholder="Discord ID (z.B. 1234567890)">
+    <input id="password" type="password" placeholder="Passwort">
 
-        <button class="cta-button" onclick="login()">
-            Einloggen
-        </button>
+    <button class="cta-button" onclick="register()">Registrieren</button>
+    <button class="cta-button secondary" onclick="login()">Login</button>
 
-        <p id="status"></p>
+    <p id="status"></p>
 
-    </div>
+</div>
 
 </section>
 
 <script>
-async function login() {
-    const discordId = document.getElementById("discordId").value;
-    const password = document.getElementById("password").value;
+let users = JSON.parse(localStorage.getItem("users") || "{}");
 
-    const res = await fetch("http://192.168.178.168:3000/check-login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ discordId, password })
-    });
+// REGISTER
+function register() {
+    const id = document.getElementById("discordId").value;
+    const pw = document.getElementById("password").value;
 
-    const data = await res.json();
-    document.getElementById("status").innerText = data.message;
+    if(!id || !pw){
+        document.getElementById("status").innerText = "Bitte alles ausfüllen";
+        return;
+    }
+
+    if(users[id]){
+        document.getElementById("status").innerText = "Account existiert schon";
+        return;
+    }
+
+    users[id] = pw;
+    localStorage.setItem("users", JSON.stringify(users));
+
+    document.getElementById("status").innerText = "Account erstellt!";
+}
+
+// LOGIN
+function login() {
+    const id = document.getElementById("discordId").value;
+    const pw = document.getElementById("password").value;
+
+    if(users[id] === pw){
+        document.getElementById("status").innerText = "Login erfolgreich!";
+    } else {
+        document.getElementById("status").innerText = "Falsche Daten!";
+    }
 }
 </script>
 
