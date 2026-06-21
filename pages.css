@@ -1,41 +1,36 @@
+
 :root {
-    --bg: #0b0f1a;
-    --panel: rgba(255,255,255,0.06);
-    --panel2: rgba(255,255,255,0.09);
-    --text: #e6e6e6;
-    --muted: rgba(255,255,255,0.6);
-    --accent: #6c5ce7;
-    --accent2: #00d2ff;
+    --bg: #0f0f0f;
+    --panel: rgba(255,255,255,0.05);
+    --panel-border: rgba(255,255,255,0.1);
+    --text: #ffffff;
 }
 
 /* GLOBAL */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #111a33, var(--bg));
+    background: var(--bg);
     color: var(--text);
 }
 
 /* NAVBAR */
 .navbar {
     width: 100%;
-    padding: 18px 40px;
+    padding: 16px 30px;
     background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--panel-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .logo {
     font-size: 22px;
     font-weight: bold;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
+/* LINKS */
 .nav-links {
     list-style: none;
     display: flex;
@@ -43,16 +38,16 @@ body {
 }
 
 .nav-links a {
+    color: white;
     text-decoration: none;
-    color: var(--text);
-    padding: 8px 14px;
+    padding: 8px 12px;
     border-radius: 10px;
     transition: 0.2s;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    background: var(--panel2);
+    background: var(--panel);
 }
 
 /* HERO CENTER */
@@ -64,64 +59,51 @@ body {
     text-align: center;
 }
 
-/* BOX DESIGN */
+/* BOXES */
 .center-box,
 .login-box {
     width: 90%;
-    max-width: 720px;
+    max-width: 700px;
     padding: 45px;
-    border-radius: 18px;
+    border-radius: 15px;
     background: var(--panel);
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    backdrop-filter: blur(12px);
-    transition: 0.3s;
-}
-
-.center-box:hover,
-.login-box:hover {
-    transform: translateY(-3px);
+    border: 1px solid var(--panel-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* LOGIN BIGGER */
 .login-box.big {
-    max-width: 820px;
+    max-width: 800px;
     padding: 70px;
 }
 
-/* TITLES */
+/* TEXT */
 h1, h2 {
     margin-bottom: 10px;
 }
 
 p {
-    color: var(--muted);
+    opacity: 0.8;
 }
 
 /* INPUTS */
 input {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
     margin: 10px 0;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    border: 1px solid var(--panel-border);
+    background: rgba(0,0,0,0.4);
     color: white;
     outline: none;
-    transition: 0.2s;
 }
 
-input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 10px rgba(108,92,231,0.3);
-}
-
-/* BUTTONS */
+/* BUTTONS (WIE VORHER MIT VERLAUF) */
 .cta-button {
     display: inline-block;
     padding: 12px 18px;
     border-radius: 12px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    background: linear-gradient(90deg, #6c5ce7, #00d2ff);
     color: white;
     font-weight: bold;
     border: none;
@@ -137,7 +119,7 @@ input:focus {
 
 .cta-button.secondary {
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid var(--panel-border);
 }
 
 /* BUTTON ROW */
@@ -149,37 +131,38 @@ input:focus {
     flex-wrap: wrap;
 }
 
-/* INFO CARDS */
+/* INFO BOXES */
 .info-section {
-    margin: 30px 0;
-    padding: 20px;
+    margin: 25px 0;
+    padding: 18px;
     border-radius: 12px;
     background: var(--panel);
+    border: 1px solid var(--panel-border);
 }
 
 /* TABLE */
 .info-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
 }
 
 .info-table th,
 .info-table td {
     padding: 12px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--panel-border);
 }
 
 /* FOOTER */
 .footer {
     text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.5);
-    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 18px;
+    background: rgba(0,0,0,0.6);
+    border-top: 1px solid var(--panel-border);
 }
 
 /* ANIMATION */
-.center-box, .login-box {
+.center-box,
+.login-box {
     animation: fadeIn 0.5s ease;
 }
 
