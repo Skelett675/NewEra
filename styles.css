@@ -5,50 +5,60 @@ body {
     color: white;
 }
 
-/* NAV */
+/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 15px 30px;
     background: rgba(0,0,0,0.6);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .logo {
+    font-size: 22px;
     font-weight: bold;
 }
 
 .nav-links {
+    list-style: none;
     display: flex;
     gap: 15px;
-    list-style: none;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
 }
 
-/* CENTER */
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255,255,255,0.08);
+}
+
+/* HERO */
 .hero {
     height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 /* BOX */
 .center-box,
 .login-box {
-    padding: 40px;
-    border-radius: 12px;
+    padding: 45px;
+    border-radius: 15px;
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
     width: 90%;
     max-width: 700px;
 }
 
-/* BIG LOGIN */
+/* LOGIN BIGGER */
 .login-box.big {
     max-width: 800px;
     padding: 60px;
@@ -74,6 +84,8 @@ input {
     cursor: pointer;
     background: linear-gradient(90deg, #6c5ce7, #00d2ff);
     color: white;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .cta-button.secondary {
