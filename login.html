@@ -5,27 +5,51 @@
     <title>Login - NewEra</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
+<!-- NAV -->
+<nav class="navbar">
+    <div class="nav-container">
+
+        <div class="logo">NewEra</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="claninfos.html">Clan Infos</a></li>
+            <li><a href="Regeln.html">Regelwerk</a></li>
+            <li><a href="discordbot.html">Discord Bot</a></li>
+            <li><a href="login.html" class="active">Login</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<!-- LOGIN -->
 <section class="hero">
+
     <div class="login-box">
 
-        <h2>Login</h2>
+        <h2>Discord Login</h2>
+
+        <p>🔐 Login funktioniert nur wenn der Bot online ist</p>
 
         <input id="discordId" placeholder="Discord ID">
         <input id="password" type="password" placeholder="Passwort">
 
-        <button onclick="login()" class="cta-button">
+        <button class="cta-button" onclick="login()">
             Einloggen
         </button>
 
         <p id="status"></p>
 
     </div>
+
 </section>
 
 <script>
 async function login() {
+
     const discordId = document.getElementById("discordId").value;
     const password = document.getElementById("password").value;
 
