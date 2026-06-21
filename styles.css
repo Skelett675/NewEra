@@ -40,7 +40,7 @@ body {
     background: rgba(255,255,255,0.08);
 }
 
-/* HERO CENTER */
+/* HERO */
 .hero {
     height: 80vh;
     display: flex;
@@ -59,18 +59,16 @@ body {
     max-width: 700px;
 }
 
-/* BUTTONS (GITHUB SAFE GRADIENT FIX) */
+/* BUTTONS */
 .cta-button {
     display: inline-block;
     padding: 12px 18px;
     margin: 5px;
     border-radius: 10px;
-
     background: linear-gradient(90deg, #6c5ce7, #00d2ff);
     color: white;
     font-weight: bold;
     text-decoration: none;
-
     transition: 0.2s;
 }
 
@@ -79,13 +77,12 @@ body {
     filter: brightness(1.1);
 }
 
-/* BOTTOM BUTTONS FIX */
+/* BOTTOM BUTTONS */
 .bottom-buttons {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -100,7 +97,7 @@ body {
     border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 @media (max-width: 600px) {
     .bottom-buttons {
         position: static;
