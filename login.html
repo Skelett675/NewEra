@@ -2,75 +2,56 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - NewEra</title>
-    <link rel="stylesheet" href="./styles.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-<nav class="navbar">
-    <div class="logo">NewEra</div>
-
-    <ul class="nav-links">
-        <li><a href="index.html">← Zurück</a></li>
-    </ul>
-</nav>
-
-<section class="hero">
 
 <div class="login-box big">
 
-    <h2>NewEra Login System</h2>
+    <h2>NewEra Login</h2>
 
-    <p>Registrieren oder einloggen mit Discord ID</p>
-
-    <input id="discordId" placeholder="Discord ID (z.B. 1234567890)">
+    <input id="discordId" placeholder="Discord ID">
     <input id="password" type="password" placeholder="Passwort">
 
-    <button class="cta-button" onclick="register()">Registrieren</button>
-    <button class="cta-button secondary" onclick="login()">Login</button>
+    <button onclick="login()" class="cta-button">Login</button>
+    <button onclick="register()" class="cta-button">Register</button>
 
-    <p id="status"></p>
+    <p id="msg"></p>
 
 </div>
 
-</section>
-
 <script>
-let users = JSON.parse(localStorage.getItem("users") || "{}");
+async function login() {
+    const discordId = document.getElementById("discordId").value;
+    const password = document.getElementById("password").value;
 
-// REGISTER
-function register() {
-    const id = document.getElementById("discordId").value;
-    const pw = document.getElementById("password").value;
+    const res = await fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ discordId, password })
+    });
 
-    if(!id || !pw){
-        document.getElementById("status").innerText = "Bitte alles ausfüllen";
-        return;
-    }
+    const data = await res.json();
 
-    if(users[id]){
-        document.getElementById("status").innerText = "Account existiert schon";
-        return;
-    }
-
-    users[id] = pw;
-    localStorage.setItem("users", JSON.stringify(users));
-
-    document.getElementById("status").innerText = "Account erstellt!";
+    document.getElementById("msg").innerText =
+        data.success ? "OK Login" : data.message;
 }
 
-// LOGIN
-function login() {
-    const id = document.getElementById("discordId").value;
-    const pw = document.getElementById("password").value;
+async function register() {
+    const discordId = document.getElementById("discordId").value;
+    const password = document.getElementById("password").value;
 
-    if(users[id] === pw){
-        document.getElementById("status").innerText = "Login erfolgreich!";
-    } else {
-        document.getElementById("status").innerText = "Falsche Daten!";
-    }
+    const res = await fetch("/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ discordId, password })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("msg").innerText =
+        data.success ? "Account erstellt" : data.message;
 }
 </script>
 
