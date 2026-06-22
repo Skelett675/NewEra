@@ -2,58 +2,85 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewEra - Login</title>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="login-box big">
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">NewEra</div>
 
-    <h2>NewEra Login</h2>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="claninfos.html">Clan Infos</a></li>
+            <li><a href="Regeln.html">Regelwerk</a></li>
+            <li><a href="discordbot.html">Discord Bot</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <input id="discordId" placeholder="Discord ID">
-    <input id="password" type="password" placeholder="Passwort">
+<!-- LOGIN SECTION -->
+<section class="page-content">
 
-    <button onclick="login()" class="cta-button">Login</button>
-    <button onclick="register()" class="cta-button">Register</button>
+    <div class="content-container">
 
-    <p id="msg"></p>
+        <div class="info-section" style="max-width:520px; margin: 0 auto; text-align:center;">
 
-</div>
+            <h2>🔐 Login Bereich</h2>
 
-<script>
-async function login() {
-    const discordId = document.getElementById("discordId").value;
-    const password = document.getElementById("password").value;
+            <p>
+                Melde dich an um Zugriff auf dein Dashboard zu bekommen.
+                Dieser Bereich ist nur für autorisierte Nutzer.
+            </p>
 
-    const res = await fetch("/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ discordId, password })
-    });
+            <form action="/login" method="POST" style="margin-top:20px;">
 
-    const data = await res.json();
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    required
+                    style="width:100%; padding:12px; margin:10px 0; border-radius:8px; border:none;"
+                >
 
-    document.getElementById("msg").innerText =
-        data.success ? "OK Login" : data.message;
-}
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Passwort"
+                    required
+                    style="width:100%; padding:12px; margin:10px 0; border-radius:8px; border:none;"
+                >
 
-async function register() {
-    const discordId = document.getElementById("discordId").value;
-    const password = document.getElementById("password").value;
+                <button type="submit" class="cta-button" style="width:100%; margin-top:15px;">
+                    Einloggen
+                </button>
 
-    const res = await fetch("/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ discordId, password })
-    });
+            </form>
 
-    const data = await res.json();
+            <div style="margin-top:20px; font-size:0.9rem; color:#ccc; line-height:1.6;">
+                ⚠️ Felder dürfen nicht leer sein<br>
+                ❌ Falsche Daten = kein Zugriff<br>
+                ✅ Richtige Daten = Login erfolgreich
+            </div>
 
-    document.getElementById("msg").innerText =
-        data.success ? "Account erstellt" : data.message;
-}
-</script>
+            <a href="index.html" class="cta-button" style="margin-top:25px; display:inline-block;">
+                ← Zurück zur Startseite
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&copy; 2026 NewEra Clan. Alle Rechte vorbehalten.</p>
+</footer>
 
 </body>
 </html>
