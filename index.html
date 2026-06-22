@@ -3,40 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewEra</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
+    <title>NewEra - Clan Portal</title>
 
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <link rel="shortcut icon" href="favicon.ico?v=2">
+</head>
 <body>
 
 <nav class="navbar">
-    <div class="logo">NewEra</div>
+    <div class="nav-container">
+        <div class="logo">NewEra</div>
 
-    <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="claninfos.html">Clan Infos</a></li>
-        <li><a href="Regeln.html">Regelwerk</a></li>
-        <li><a href="discordbot.html">Discord Bot</a></li>
-        <li><a href="login.html">Login</a></li>
-    </ul>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="claninfos.html">Clan Infos</a></li>
+            <li><a href="Regeln.html">Regelwerk</a></li>
+            <li>
+                <a href="https://discord.gg/t6cKAndmGn" target="_blank">
+                    Discord Server
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <section class="hero">
-    <div class="center-box">
-        <h1>NewEra</h1>
-        <p>Willkommen auf der offiziellen Clan Website</p>
+    <div class="glow-container">
+        <h1 class="main-title">NewEra</h1>
+        <p class="subtitle">
+            Willkommen auf der offiziellen Website von NewEra
+        </p>
     </div>
+
+    <div class="stars"></div>
 </section>
 
-<section class="bottom-buttons">
-    <a href="claninfos.html" class="cta-button">Clan Infos</a>
-    <a href="Regeln.html" class="cta-button">Regelwerk</a>
-    <a href="discordbot.html" class="cta-button">Discord Bot</a>
-    <a href="login.html" class="cta-button">Login</a>
+<section class="features">
+
+    <div class="feature-card">
+        <h3>Clan Infos</h3>
+        <p>
+            Erfahre mehr über unseren Clan, unsere Ziele,
+            die Ränge und unsere Mitglieder.
+        </p>
+
+        <a href="claninfos.html" class="cta-button">
+            Mehr erfahren
+        </a>
+    </div>
+
+    <div class="feature-card">
+        <h3>Regelwerk</h3>
+        <p>
+            Lese die Regeln von NewEra und erfahre,
+            wie unser Clan funktioniert.
+        </p>
+
+        <a href="Regeln.html" class="cta-button">
+            Regeln ansehen
+        </a>
+    </div>
+
+    <div class="feature-card">
+        <h3>Discord Server</h3>
+        <p>
+            Trete unserem Discord Server bei und werde Teil
+            der NewEra Community.
+        </p>
+
+        <a
+            href="https://discord.gg/t6cKAndmGn"
+            target="_blank"
+            class="cta-button"
+        >
+            Discord beitreten
+        </a>
+    </div>
+
+    <div class="feature-card">
+        <h3>Discord Bot</h3>
+        <p>
+            Informationen über unseren offiziellen Discord Bot,
+            seine Funktionen sowie Terms und Privacy.
+        </p>
+
+        <a
+            href="discordbot.html"
+            class="cta-button"
+        >
+            Zum Discord Bot
+        </a>
+    </div>
+
 </section>
 
 <footer class="footer">
-    <p>© 2026 NewEra Clan</p>
+    <p>&copy; 2026 NewEra Clan. Alle Rechte vorbehalten.</p>
 </footer>
 
 </body>
